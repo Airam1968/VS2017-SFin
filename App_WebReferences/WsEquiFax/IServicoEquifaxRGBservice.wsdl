@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IServicoEquifaxRGBservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="Consultar_Equifax0Request">
+    <part name="Usuario" type="xs:string" />
+    <part name="Senha" type="xs:string" />
+    <part name="Cnpj" type="xs:string" />
+    <part name="TipoConsulta" type="xs:string" />
+  </message>
+  <message name="Consultar_Equifax0Response">
+    <part name="return" type="xs:anyType" />
+  </message>
+  <message name="ConsultaGestorEQUIFAX1Request">
+    <part name="xUsuario" type="xs:string" />
+    <part name="xSenha" type="xs:string" />
+    <part name="xCnpj" type="xs:string" />
+    <part name="xTipoConsulta" type="xs:string" />
+    <part name="xPessoaFisicaJuridica" type="xs:string" />
+    <part name="xckFactor" type="xs:string" />
+    <part name="xckCompleta" type="xs:string" />
+    <part name="xckIdentificacao" type="xs:string" />
+    <part name="xckCadastrais" type="xs:string" />
+    <part name="xckPartempresas" type="xs:string" />
+    <part name="xckInfoeleitoral" type="xs:string" />
+    <part name="xckConsultasCPF" type="xs:string" />
+    <part name="xckDetalheConsultasCPF" type="xs:string" />
+    <part name="xckDetalheAcoesCiveis" type="xs:string" />
+    <part name="xckVencidos" type="xs:string" />
+    <part name="xckChsemfundo" type="xs:string" />
+    <part name="xckProtesto" type="xs:string" />
+    <part name="xckPartFalencias" type="xs:string" />
+    <part name="xckScoreConsumer" type="xs:string" />
+  </message>
+  <message name="ConsultaGestorEQUIFAX1Response">
+    <part name="return" type="xs:anyType" />
+  </message>
+  <portType name="IServicoEquifaxRGB">
+    <operation name="Consultar_Equifax">
+      <input message="tns:Consultar_Equifax0Request" />
+      <output message="tns:Consultar_Equifax0Response" />
+    </operation>
+    <operation name="ConsultaGestorEQUIFAX">
+      <input message="tns:ConsultaGestorEQUIFAX1Request" />
+      <output message="tns:ConsultaGestorEQUIFAX1Response" />
+    </operation>
+  </portType>
+  <binding name="IServicoEquifaxRGBbinding" type="tns:IServicoEquifaxRGB">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="Consultar_Equifax">
+      <soap:operation soapAction="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB#Consultar_Equifax" style="rpc" />
+      <input message="tns:Consultar_Equifax0Request">
+        <soap:body use="encoded" namespace="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:Consultar_Equifax0Response">
+        <soap:body use="encoded" namespace="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaGestorEQUIFAX">
+      <soap:operation soapAction="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB#ConsultaGestorEQUIFAX" style="rpc" />
+      <input message="tns:ConsultaGestorEQUIFAX1Request">
+        <soap:body use="encoded" namespace="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:ConsultaGestorEQUIFAX1Response">
+        <soap:body use="encoded" namespace="urn:ServicoEquifaxRGBIntf-IServicoEquifaxRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IServicoEquifaxRGBservice">
+    <port name="IServicoEquifaxRGBPort" binding="tns:IServicoEquifaxRGBbinding">
+      <soap:address location="http://192.168.0.86/gestornet/wsequifax.exe/soap/IServicoEquifaxRGB" />
+    </port>
+  </service>
+</definitions>

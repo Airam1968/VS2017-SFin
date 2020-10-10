@@ -1,0 +1,8 @@
+A fonte de destaque é a Dekar, as cores seguem abaixo:
+Web safe RGB
+azul escuro  - R:00 | G:2B | B:5C
+azul claro  - R:B7 | G:D1 | B:ED
+cinza claro  - R:DC | G:DD | B:DE
+cinza médio  - R:7E | G:80 | B:83
+cinza escuro  - R:47 | G:47 | B:4A
+laranja  - R:EF | G:AC | B:1F

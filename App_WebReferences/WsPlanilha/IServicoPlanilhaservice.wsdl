@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IServicoPlanilhaservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="GeraPlanilha0Request">
+    <part name="sqlcommand" type="xs:string" />
+  </message>
+  <message name="GeraPlanilha0Response" />
+  <portType name="IServicoPlanilha">
+    <operation name="GeraPlanilha">
+      <input message="tns:GeraPlanilha0Request" />
+      <output message="tns:GeraPlanilha0Response" />
+    </operation>
+  </portType>
+  <binding name="IServicoPlanilhabinding" type="tns:IServicoPlanilha">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="GeraPlanilha">
+      <soap:operation soapAction="urn:ServicoPlanilhaIntf-IServicoPlanilha#GeraPlanilha" style="rpc" />
+      <input message="tns:GeraPlanilha0Request">
+        <soap:body use="encoded" namespace="urn:ServicoPlanilhaIntf-IServicoPlanilha" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:GeraPlanilha0Response">
+        <soap:body use="encoded" namespace="urn:ServicoPlanilhaIntf-IServicoPlanilha" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IServicoPlanilhaservice">
+    <port name="IServicoPlanilhaPort" binding="tns:IServicoPlanilhabinding">
+      <soap:address location="http://192.168.0.86/gestornet/wsplanilha.exe/soap/IServicoPlanilha" />
+    </port>
+  </service>
+</definitions>

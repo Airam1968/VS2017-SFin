@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IServicoSerasaRGBservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="ConsultaGestorNET0Request">
+    <part name="Usuario" type="xs:string" />
+    <part name="Senha" type="xs:string" />
+    <part name="Cnpj" type="xs:string" />
+    <part name="TipoConsulta" type="xs:string" />
+    <part name="PessoaFisicaJuridica" type="xs:string" />
+    <part name="Banco" type="xs:string" />
+    <part name="Cheque_inicial" type="xs:string" />
+    <part name="Cheque_final" type="xs:string" />
+    <part name="Valor" type="xs:string" />
+    <part name="venc" type="xs:string" />
+    <part name="ddd" type="xs:string" />
+    <part name="telefone" type="xs:string" />
+    <part name="Quadro_social" type="xs:string" />
+    <part name="Participacoes" type="xs:string" />
+    <part name="CreditRiskScoring" type="xs:string" />
+    <part name="DetalhaConcentre" type="xs:string" />
+    <part name="RegistroConsulta" type="xs:string" />
+    <part name="MonitoreGerencie" type="xs:string" />
+    <part name="PerfilRelato" type="xs:string" />
+    <part name="EmailRelato" type="xs:string" />
+    <part name="spc1" type="xs:string" />
+    <part name="spc5" type="xs:string" />
+  </message>
+  <message name="ConsultaGestorNET0Response">
+    <part name="return" type="xs:anyType" />
+  </message>
+  <portType name="IServicoSerasaRGB">
+    <operation name="ConsultaGestorNET">
+      <input message="tns:ConsultaGestorNET0Request" />
+      <output message="tns:ConsultaGestorNET0Response" />
+    </operation>
+  </portType>
+  <binding name="IServicoSerasaRGBbinding" type="tns:IServicoSerasaRGB">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="ConsultaGestorNET">
+      <soap:operation soapAction="urn:ServicoSerasaRGBIntf-IServicoSerasaRGB#ConsultaGestorNET" style="rpc" />
+      <input message="tns:ConsultaGestorNET0Request">
+        <soap:body use="encoded" namespace="urn:ServicoSerasaRGBIntf-IServicoSerasaRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:ConsultaGestorNET0Response">
+        <soap:body use="encoded" namespace="urn:ServicoSerasaRGBIntf-IServicoSerasaRGB" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IServicoSerasaRGBservice">
+    <port name="IServicoSerasaRGBPort" binding="tns:IServicoSerasaRGBbinding">
+      <soap:address location="http://192.168.0.86/gestornet/wsserasargb.exe/soap/IServicoSerasaRGB" />
+    </port>
+  </service>
+</definitions>

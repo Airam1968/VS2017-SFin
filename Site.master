@@ -1,0 +1,412 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxFormLayout" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.XtraReports.v13.2.Web, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.XtraReports.Web" TagPrefix="dx1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script runat="server"></script>
+<script type="text/javascript" src="../../Scripts/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="../../Scripts/toastr.min.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="../../content/toastr.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .dxeTrackBar, .dxeIRadioButton, .dxeButtonEdit, .dxeTextBox, .dxeRadioButtonList, .dxeCheckBoxList, .dxeMemo, .dxeListBox, .dxeCalendar, .dxeColorTable {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        .dxeTextBox, .dxeButtonEdit, .dxeIRadioButton, .dxeRadioButtonList, .dxeCheckBoxList {
+            cursor: default;
+        }
+
+        .dxeButtonEdit {
+            background-color: white;
+            border: 1px solid #9F9F9F;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            height: 53px;
+            width: 335px;
+            right: 0px;
+        }
+
+        .dxeButtonEditButton, .dxeSpinIncButton, .dxeSpinDecButton, .dxeSpinLargeIncButton, .dxeSpinLargeDecButton, .dxeButtonEditButton, .dxeCalendarButton, .dxeButtonEditButton td.dx, .dxeCalendarButton td.dx, .dxeSpinIncButton, .dxeSpinDecButton, .dxeSpinLargeIncButton, .dxeSpinLargeDecButton, .dxeSpinIncButton td.dx, .dxeSpinDecButton td.dx, .dxeSpinLargeIncButton td.dx, .dxeSpinLargeDecButton td.dx {
+            font: normal 11px Tahoma;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .dxeButtonEditButton, .dxeCalendarButton, .dxeSpinIncButton, .dxeSpinDecButton, .dxeSpinLargeIncButton, .dxeSpinLargeDecButton {
+            vertical-align: middle;
+            border: 1px solid #7f7f7f;
+            cursor: pointer;
+        }
+
+            .dxeButtonEditButton table.dxbebt, .dxeSpinIncButton table.dxbebt, .dxeSpinDecButton table.dxbebt, .dxeSpinLargeIncButton table.dxbebt, .dxeSpinLargeDecButton table.dxbebt {
+                width: 10px;
+            }
+
+        .dxeButtonEdit td.dxic {
+            padding: 0px 2px 0px 1px;
+        }
+
+        .dxeButtonEdit .dxeEditArea, .dxeButtonEdit td.dxic {
+            width: 100%;
+        }
+
+        td.dxic {
+            font-size: 0;
+        }
+
+        td.dxic {
+            font-size: 0;
+        }
+
+        .dxeButtonEdit .dxeEditArea {
+            background-color: white;
+        }
+
+        .dxeEditArea {
+            font: 12px Tahoma;
+            border: 1px solid #A0A0A0;
+        }
+
+        .dxeEditAreaSys {
+            width: 100%;
+            background-position: 0 0; /*iOS Safari*/
+        }
+
+        .dxeEditAreaSys, .dxeEditAreaNotStrechSys {
+            border: 0px !important;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <div class="page">
+            <div class="header" style="background-color: #3E5380">
+                <asp:Image runat="server" ImageUrl="~/images/logomarca/logoSRE_pequena_70x120px.jpg"
+                    BorderWidth="0px" BorderStyle="None" EnableTheming="False" Height="65px" Width="122px"
+                    ID="Image4" Style="position: absolute; top: 3px; left: 24px; z-index: 1;"></asp:Image>
+                <dx:ASPxImage runat="server" ImageUrl="~/images/logomarca/gitano.jpg" Height="40px"
+                    ID="ASPxImage2" Style="position: absolute; top: 15px; left: 200px; margin-bottom: 4px; z-index: 1; width: 200px;">
+                </dx:ASPxImage>
+                <div style="border-style: none; z-index: 1; left: 646px; top: 12px; position: absolute; height: 52px; width: 380px">
+                    <div style="width: 212px; text-align: right; height: 18px;">
+                        <asp:Label runat="server" Font-Size="9pt" ForeColor="White" ID="lbusuario" Visible="False"
+                            Style="font-weight: 700;">Usuário:</asp:Label>
+                    </div>
+                    <div style="width: 211px; text-align: right; height: 14px; margin-top: 1px;">
+                        <asp:Label runat="server" Font-Size="9pt" ForeColor="#99CCFF" ID="lbbase" Visible="False">Base:</asp:Label>
+                    </div>
+                    <div style="border-style: none; width: 24px; height: 14px; z-index: 1; left: 189px; top: 35px; position: absolute;">
+                        <asp:LinkButton runat="server" Font-Bold="True" Font-Size="9pt" Font-Underline="False"
+                            ForeColor="#CC3300" ID="lblogoff" ViewStateMode="Disabled" Visible="False" OnClick="lblogoff_Click">SAIR</asp:LinkButton>
+                    </div>
+                    <asp:Image runat="server" ImageUrl="~/images/tra&#231;o_branco2.jpg" Height="53px"
+                        ID="Image1" Visible="False" Style="z-index: 1; left: 220px; top: -2px; position: absolute"></asp:Image>
+                    <asp:Label runat="server" Font-Size="9pt" ForeColor="#99CCFF" ID="lbdataatual" Visible="False"
+                        Style="z-index: 1; left: 234px; top: 3px; position: absolute; text-align: right;">Data Atual:</asp:Label>
+                    <asp:Label runat="server" Font-Size="9pt" ForeColor="#99CCFF" ID="lbfechamento" Visible="False"
+                        Style="z-index: 1; left: 234px; top: 18px; position: absolute; text-align: right;">Ult. Correção:</asp:Label>
+                    <br />
+                    <asp:Label runat="server" Font-Size="9pt" ForeColor="#99CCFF" ID="lbatualizacao"
+                        Visible="False" Style="z-index: 1; left: 234px; top: 33px; position: absolute; text-align: right;">Atualizado:</asp:Label>
+                </div>
+                <asp:Image runat="server" ImageUrl="~/images/logomarca/logoCliente_pequena_75x129px.jpg"
+                    BorderWidth="0px" BorderStyle="None" EnableTheming="False" Height="70px" Width="122px"
+                    ID="Image5" Style="position: absolute; top: 0px; left: 1075px; z-index: 1;"></asp:Image>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div class="clear">
+            </div>
+            <div class="footer">
+                <div style="height: 2px; background-color: #C0C0C0; width: 1084px; position: relative; top: 10px; left: 75px;">
+                </div>
+                <div style="width: 911px; margin-left: 150px; top: 20px; position: relative; left: 0px;">
+                    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="13" Width="967px">
+                        <Items>
+                            <dx:LayoutItem ShowCaption="False" Width="20px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton13" runat="server" BackColor="White" Height="34px" OnClick="ASPxButton8_Click"
+                                            ValidateInvisibleEditors="True" Width="40px">
+                                            <Image Height="31px" ToolTip="E-mail do Suporte" Url="~/images/icones/email_active.png"
+                                                UrlHottracked="~/images/icones/email_dark.png" Width="31px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <DisabledStyle BackColor="#FF5050">
+                                            </DisabledStyle>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" Width="20px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton17" runat="server" BackColor="White" ForeColor="Red"
+                                            Height="34px" OnClick="ASPxButton3_Click" ValidateInvisibleEditors="True" Width="40px">
+                                            <Image Height="34px" ToolTip="Facebook" Url="~/images/icones/facebook_active.png"
+                                                UrlHottracked="~/images/icones/facebook_dark.png" Width="34px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <%--                                        <DisabledStyle BackColor="#FF5050">
+                                        </DisabledStyle>--%>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" Width="20px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton18" runat="server" BackColor="White" ForeColor="Red"
+                                            Height="34px" OnClick="ASPxButton4_Click" ValidateInvisibleEditors="True" Width="40px">
+                                            <Image Height="34px" ToolTip="Twitter" Url="~/images/icones/twitter_active.png" UrlHottracked="~/images/icones/twitter_dark.png"
+                                                Width="34px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <%--                                        <DisabledStyle BackColor="#FF5050">
+                                        </DisabledStyle>--%>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+<%--                            <dx:LayoutItem ShowCaption="False" Width="20px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton19" runat="server" BackColor="White" ForeColor="Red"
+                                            Height="32px" OnClick="ASPxButton5_Click" ValidateInvisibleEditors="True" Width="40px">
+                                            <Image Height="32px" ToolTip="Blog" Url="~/images/icones/blogger_active.png" UrlHottracked="~/images/icones/blogger_dark.png"
+                                                Width="32px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <DisabledStyle BackColor="#FF5050">
+                                            </DisabledStyle>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>--%>
+                            <dx:LayoutItem ShowCaption="False" Width="20px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton21" runat="server" BackColor="White" Height="32px" OnClick="ASPxButton10_Click"
+                                            ValidateInvisibleEditors="True" Width="40px" Enabled="True">
+                                            <Image Height="32px" ToolTip="Melhorias" Url="~/images/icones/melhorias_active.jpg"
+                                                UrlHottracked="~/images/icones/melhorias_dark.jpg" Width="32px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle BackColor="White">
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <PressedStyle BackColor="White">
+                                            </PressedStyle>
+                                            <HoverStyle BackColor="White">
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="White" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <%--                                        <DisabledStyle BackColor="#FF5050">
+                                        </DisabledStyle>--%>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" Width="100px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton22" runat="server" BackColor="White" Cursor="auto" ForeColor="Red"
+                                            Height="32px" HorizontalAlign="Center" ValidateInvisibleEditors="True" Width="140px">
+                                            <Image Height="32px" ToolTip="Entre em contato conosco" Url="~/images/icones/tel_active.jpg"
+                                                Width="140px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <DisabledStyle BackColor="#FF5050">
+                                            </DisabledStyle>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" Width="120px">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxButton ID="ASPxButton23" runat="server" BackColor="White" ForeColor="White"
+                                            Height="32px" OnClick="ASPxButton11_Click" ValidateInvisibleEditors="True" Width="177px">
+                                            <Image Height="32px" ToolTip="Website" Url="~/images/icones/site_active.jpg" UrlHottracked="~/images/icones/site_dark.jpg"
+                                                Width="170px">
+                                            </Image>
+                                            <Paddings Padding="0px" />
+                                            <CheckedStyle>
+                                                <Border BorderStyle="None" />
+                                            </CheckedStyle>
+                                            <HoverStyle>
+                                                <Border BorderStyle="None" />
+                                                <BorderLeft BorderStyle="None" />
+                                                <BorderTop BorderStyle="None" />
+                                                <BorderRight BorderStyle="None" />
+                                                <BorderBottom BorderStyle="None" />
+                                            </HoverStyle>
+                                            <FocusRectPaddings Padding="0px" />
+                                            <FocusRectBorder BorderColor="White" BorderStyle="None" />
+                                            <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+                                            <Border BorderStyle="None" />
+                                            <BorderLeft BorderStyle="None" />
+                                            <BorderTop BorderStyle="None" />
+                                            <BorderRight BorderStyle="None" />
+                                            <BorderBottom BorderStyle="None" />
+                                            <%--                                        <DisabledStyle BackColor="#FF5050">
+                                        </DisabledStyle>--%>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                        </Items>
+                    </dx:ASPxFormLayout>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<%--<dx:ASPxButton ID="ASPxButton24" runat="server" BackColor="White" ForeColor="Red"
+    Height="32px" HorizontalAlign="Center" OnClick="ASPxButton12_Click" ValidateInvisibleEditors="True"
+    Width="151px" Enabled="False">
+    <Image Height="32px" ToolTip="Sobre Nós" Url="~/images/icones/autoprod_active.jpg"
+        UrlHottracked="~/images/icones/autoprod_dark.jpg" Width="140px">
+    </Image>
+    <Paddings Padding="0px" />
+    <CheckedStyle>
+        <Border BorderStyle="None" />
+    </CheckedStyle>
+    <HoverStyle>
+        <Border BorderStyle="None" />
+        <BorderLeft BorderStyle="None" />
+        <BorderTop BorderStyle="None" />
+        <BorderRight BorderStyle="None" />
+        <BorderBottom BorderStyle="None" />
+    </HoverStyle>
+    <FocusRectPaddings Padding="0px" />
+    <FocusRectBorder BorderColor="#9999FF" BorderStyle="None" />
+    <BackgroundImage HorizontalPosition="center" Repeat="NoRepeat" />
+    <Border BorderStyle="None" />
+    <BorderLeft BorderStyle="None" />
+    <BorderTop BorderStyle="None" />
+    <BorderRight BorderStyle="None" />
+    <BorderBottom BorderStyle="None" />
+    <DisabledStyle BackColor="#FF5050">
+    </DisabledStyle>
+</dx:ASPxButton>--%>

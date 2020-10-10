@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IServicoRelatorioGestorservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="Relatorio_SintCnpjCrit0Request">
+    <part name="NomeArquivoPdf" type="xs:string" />
+    <part name="data" type="xs:string" />
+    <part name="numero" type="xs:string" />
+    <part name="dataatual" type="xs:string" />
+    <part name="cedente" type="xs:string" />
+    <part name="recompra" type="xs:string" />
+    <part name="bordero" type="xs:string" />
+    <part name="bordero2" type="xs:string" />
+    <part name="bordero3" type="xs:string" />
+    <part name="txdesc" type="xs:string" />
+    <part name="txservico" type="xs:string" />
+    <part name="tiporelatorio" type="xs:string" />
+  </message>
+  <message name="Relatorio_SintCnpjCrit0Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="Relatorio_ImprimeProposta1Request">
+    <part name="NomeArquivoPdf" type="xs:string" />
+    <part name="cksimplificada" type="xs:string" />
+    <part name="data" type="xs:string" />
+    <part name="numero" type="xs:string" />
+    <part name="cedente" type="xs:string" />
+    <part name="rgaprov" type="xs:string" />
+    <part name="ckimpobs" type="xs:string" />
+    <part name="obs1" type="xs:string" />
+    <part name="obs2" type="xs:string" />
+    <part name="ck1" type="xs:string" />
+    <part name="ck2" type="xs:string" />
+    <part name="ck3" type="xs:string" />
+    <part name="ck4" type="xs:string" />
+    <part name="ck5" type="xs:string" />
+    <part name="q1" type="xs:string" />
+    <part name="v1" type="xs:string" />
+    <part name="q2" type="xs:string" />
+    <part name="v2" type="xs:string" />
+    <part name="q3" type="xs:string" />
+    <part name="v3" type="xs:string" />
+    <part name="q4" type="xs:string" />
+    <part name="v4" type="xs:string" />
+    <part name="q5" type="xs:string" />
+    <part name="v5" type="xs:string" />
+  </message>
+  <message name="Relatorio_ImprimeProposta1Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="Relatorio_ImprimeEquifaxSerasa2Request">
+    <part name="NomeArquivoPdf" type="xs:string" />
+    <part name="xTexto" type="xs:anyType" />
+  </message>
+  <message name="Relatorio_ImprimeEquifaxSerasa2Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <portType name="IServicoRelatorioGestor">
+    <operation name="Relatorio_SintCnpjCrit">
+      <input message="tns:Relatorio_SintCnpjCrit0Request" />
+      <output message="tns:Relatorio_SintCnpjCrit0Response" />
+    </operation>
+    <operation name="Relatorio_ImprimeProposta">
+      <input message="tns:Relatorio_ImprimeProposta1Request" />
+      <output message="tns:Relatorio_ImprimeProposta1Response" />
+    </operation>
+    <operation name="Relatorio_ImprimeEquifaxSerasa">
+      <input message="tns:Relatorio_ImprimeEquifaxSerasa2Request" />
+      <output message="tns:Relatorio_ImprimeEquifaxSerasa2Response" />
+    </operation>
+  </portType>
+  <binding name="IServicoRelatorioGestorbinding" type="tns:IServicoRelatorioGestor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="Relatorio_SintCnpjCrit">
+      <soap:operation soapAction="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor#Relatorio_SintCnpjCrit" style="rpc" />
+      <input message="tns:Relatorio_SintCnpjCrit0Request">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:Relatorio_SintCnpjCrit0Response">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Relatorio_ImprimeProposta">
+      <soap:operation soapAction="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor#Relatorio_ImprimeProposta" style="rpc" />
+      <input message="tns:Relatorio_ImprimeProposta1Request">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:Relatorio_ImprimeProposta1Response">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Relatorio_ImprimeEquifaxSerasa">
+      <soap:operation soapAction="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor#Relatorio_ImprimeEquifaxSerasa" style="rpc" />
+      <input message="tns:Relatorio_ImprimeEquifaxSerasa2Request">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:Relatorio_ImprimeEquifaxSerasa2Response">
+        <soap:body use="encoded" namespace="urn:ServicoRelatorioGestorIntf-IServicoRelatorioGestor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IServicoRelatorioGestorservice">
+    <port name="IServicoRelatorioGestorPort" binding="tns:IServicoRelatorioGestorbinding">
+      <soap:address location="http://192.168.0.86/gestornet/wsrelatoriosgestor.exe/soap/IServicoRelatorioGestor" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Iwsvalidaservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="numestacoes0Request">
+    <part name="apelido" type="xs:string" />
+  </message>
+  <message name="numestacoes0Response">
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="temmodulos1Request">
+    <part name="apelido" type="xs:string" />
+    <part name="nummodulo" type="xs:int" />
+  </message>
+  <message name="temmodulos1Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <portType name="Iwsvalida">
+    <operation name="numestacoes">
+      <input message="tns:numestacoes0Request" />
+      <output message="tns:numestacoes0Response" />
+    </operation>
+    <operation name="temmodulos">
+      <input message="tns:temmodulos1Request" />
+      <output message="tns:temmodulos1Response" />
+    </operation>
+  </portType>
+  <binding name="Iwsvalidabinding" type="tns:Iwsvalida">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="numestacoes">
+      <soap:operation soapAction="urn:wsvalidaIntf-Iwsvalida#numestacoes" style="rpc" />
+      <input message="tns:numestacoes0Request">
+        <soap:body use="encoded" namespace="urn:wsvalidaIntf-Iwsvalida" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:numestacoes0Response">
+        <soap:body use="encoded" namespace="urn:wsvalidaIntf-Iwsvalida" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="temmodulos">
+      <soap:operation soapAction="urn:wsvalidaIntf-Iwsvalida#temmodulos" style="rpc" />
+      <input message="tns:temmodulos1Request">
+        <soap:body use="encoded" namespace="urn:wsvalidaIntf-Iwsvalida" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:temmodulos1Response">
+        <soap:body use="encoded" namespace="urn:wsvalidaIntf-Iwsvalida" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Iwsvalidaservice">
+    <port name="IwsvalidaPort" binding="tns:Iwsvalidabinding">
+      <soap:address location="http://rgbsys.no-ip.org/autoprodrgb/wsvalida.exe/soap/Iwsvalida" />
+    </port>
+  </service>
+</definitions>

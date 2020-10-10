@@ -1,0 +1,85 @@
+﻿body 
+{
+      
+}
+
+.titulo
+{
+    font-weight: bold;
+    font-size: 11pt;
+    letter-spacing : -2px;
+    color: #B5DF8A;
+    font-family: Arial;
+}
+
+
+.titulomedia
+{
+    font-weight: normal;
+    font-size: 10pt;
+    color: white;
+    font-family: Arial;
+}
+
+.titulopopup
+{
+    font-weight: bold;
+    font-size: 9pt;
+    color: #003399;
+    font-family: Arial;
+    border-top-width: thin;
+    border-left-width: thin;
+    border-left-color: gray;
+    border-bottom-width: thin;
+    border-bottom-color: gray;
+    border-top-color: gray;
+    border-right-width: thin;
+    font-variant: small-caps;
+    border-right-color: gray;
+}
+
+.resultadomedia
+{
+    font-weight: normal;
+    font-size: 10pt;
+    color: #ffcc99;
+    font-family: Arial;
+}
+
+
+.link
+{
+    color: #003399;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: Arial;
+    
+}
+
+.link:hover
+{
+    color: #ffcc99;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: Arial;
+}
+
+.link:active 
+{ 
+    color: #003399;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: Arial;
+}
+    
+.painel
+{
+    width : 500px;
+}    
+.espaco
+{
+    letter-spacing : -0.5px;
+}
