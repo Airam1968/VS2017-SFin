@@ -4,7 +4,6 @@
 
 Sistema desenvolvido a partir de 2015 .Net C# rodando com SQL 2008 R2.
 
-<img src="C:\Users\Airam Almeida\AppData\Roaming\Typora\typora-user-images\image-20201106170848781.png" alt="image-20201106170848781" style="zoom: 67%;" />
 
 ## Instalação
 
